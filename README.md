@@ -15,7 +15,7 @@ The `css/style.css` and `app/app.js` is already linked to the index.html, making
 
 # Installation
 ```bash 
-git clone 
+git clone https://github.com/EzlosSWM/mktemplate.git
 ```
 
 *Note: You can either modify the script or use it as is, or you can use the pre-compiled script within the builds folder*
@@ -40,8 +40,8 @@ Since this is the beta, I would eventually like to add:
 - Arguments to specify the folder name. 
 
 If you have any ideas or tips, you can contact me at: 
-[Github](https://github.com/EzlosSWM)
-[Twitter](https://twitter.com/EzlosSWM)
+[Github](https://github.com/EzlosSWM) or
+[Twitter](https://twitter.com/EzlosSWM).
 
 # Known Issues
 - Does not work for MacOS but will add it to the project very soon. 
