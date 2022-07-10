@@ -40,8 +40,8 @@ Since this is the beta, I would eventually like to add:
 - Arguments to specify the folder name. 
 
 If you have any ideas or tips, you can contact me at: 
-[https://github.com/EzlosSWM](Github)
-[https://twitter.com/EzlosSWM](Twiiter)
+[Github](https://github.com/EzlosSWM)
+[Twitter](https://twitter.com/EzlosSWM)
 
 # Known Issues
 - Does not work for MacOS but will add it to the project very soon. 
