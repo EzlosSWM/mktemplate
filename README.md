@@ -33,6 +33,7 @@ cd mktemplate/builds/
 
 ## End Result 
 Once the folder is generated, you could open the `index.html` file on your favorite web browser and you'll see something simlar to: 
+![mktemp](https://user-images.githubusercontent.com/80317213/178158895-fa428607-75e6-406a-aa78-31f74b2cd2e6.gif)
 
 # Want to contribute?
 Since this is the beta, I would eventually like to add: 
