@@ -2,31 +2,23 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"mktemplate/statics"
-	"os"
+	app "mktemplate/app"
 )
 
 func main() {
 
 	// Determines the path to the Desktop folder
-	homeDirectory := statics.PathToHome()
-	desktopFolder := statics.DeterminePath(homeDirectory)
+	desktopFolder := app.DetermineDesktop()
 
-	statics.CreateFolder(desktopFolder)
-	sitesFolder := statics.CreateFolder(desktopFolder)
+	app.CreateSites(desktopFolder)
+	sitesFolder := app.CreateSites(desktopFolder)
 
 	// Moves into the created sites folder in the desktop & adds the index.html file
-	os.Chdir(sitesFolder)
-
-	err := os.WriteFile("index.html", []byte(statics.Html), 0755)
-	if err != nil {
-		log.Fatalf("Unable to write file %v", err)
-	}
+	app.CreateHTML(sitesFolder)
 
 	// Creates folder for css & style.css
-	statics.CreateCSS(sitesFolder)
-	statics.CreateJS(sitesFolder)
+	app.CreateCSS(sitesFolder)
+	app.CreateJS(sitesFolder)
 
 	fmt.Printf("Complete, \"Sites\" folder created in %v.\n", sitesFolder)
 

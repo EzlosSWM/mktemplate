@@ -8,43 +8,38 @@ import (
 	"runtime"
 )
 
-func PathToHome() string {
+var Path string
 
-	initialPath, error := user.Current()
-	if error != nil {
-		log.Fatal(error)
+func DetermineDesktop() string {
+
+	initialPath, err := user.Current()
+	if err != nil {
+		log.Fatal(err)
 	}
 	homeDirectory := initialPath.HomeDir
 
-	return homeDirectory
-
-}
-
-func DeterminePath(homeDirectory string) string {
-
-	var desktopPath string
-
+	// Creates the full path to the desktop
 	if runtime.GOOS == "linux" {
-		desktopPath = string(homeDirectory + "/Desktop")
+		Path = string(homeDirectory + "/Desktop")
 	}
 	if runtime.GOOS == "windows" {
-		desktopPath = string(homeDirectory + "\\Desktop")
+		Path = string(homeDirectory + "\\Desktop")
 	}
 
-	return desktopPath
+	return Path
 
 }
 
-func CreateFolder(desktopFolder string) string {
+func CreateSites(Path string) string {
 
 	var pathToSites string
 
-	files, err := ioutil.ReadDir(desktopFolder)
+	files, err := ioutil.ReadDir(Path)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	os.Chdir(desktopFolder)
+	os.Chdir(Path)
 
 	for _, file := range files {
 
@@ -54,13 +49,24 @@ func CreateFolder(desktopFolder string) string {
 	}
 
 	if runtime.GOOS == "linux" {
-		pathToSites = desktopFolder + "/Sites"
+		pathToSites = Path + "/Sites"
 	}
 	if runtime.GOOS == "windows" {
-		pathToSites = desktopFolder + "\\Sites"
+		pathToSites = Path + "\\Sites"
 	}
 
 	return pathToSites
+
+}
+
+func CreateHTML(sitesFolder string) {
+
+	os.Chdir(sitesFolder)
+
+	err := os.WriteFile("index.html", []byte(Html), 0755)
+	if err != nil {
+		log.Fatalf("Unable to write file %v", err)
+	}
 
 }
 
