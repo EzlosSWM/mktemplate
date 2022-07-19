@@ -2,23 +2,23 @@ package main
 
 import (
 	"fmt"
-	statics "mktemplate/app"
+	app "mktemplate/app"
 )
 
 func main() {
 
 	// Determines the path to the Desktop folder
-	desktopFolder := statics.DetermineDesktop()
+	desktopFolder := app.DetermineDesktop()
 
-	statics.CreateSites(desktopFolder)
-	sitesFolder := statics.CreateSites(desktopFolder)
+	app.CreateSites(desktopFolder)
+	sitesFolder := app.CreateSites(desktopFolder)
 
 	// Moves into the created sites folder in the desktop & adds the index.html file
-	statics.CreateHTML(sitesFolder)
+	app.CreateHTML(sitesFolder)
 
 	// Creates folder for css & style.css
-	statics.CreateCSS(sitesFolder)
-	statics.CreateJS(sitesFolder)
+	app.CreateCSS(sitesFolder)
+	app.CreateJS(sitesFolder)
 
 	fmt.Printf("Complete, \"Sites\" folder created in %v.\n", sitesFolder)
 
